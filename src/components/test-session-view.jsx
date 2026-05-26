@@ -20,18 +20,9 @@ export function TestSessionView() {
   );
 
   return (
-    <Box
-      sx={{
-        display: "flex",
-        flex: 1,
-        minHeight: 0,
-        flexDirection: "column",
-        overflow: "hidden",
-      }}
-    >
+    <Box sx={{ display: "flex", flexDirection: "column" }}>
       <Box
         sx={{
-          flexShrink: 0,
           display: "flex",
           alignItems: "center",
           gap: 1.5,
@@ -60,40 +51,30 @@ export function TestSessionView() {
         )}
       </Box>
 
-      <Box sx={{ flexShrink: 0 }}>
-        <HeroSection />
-        <MetricsBar />
-      </Box>
+      <HeroSection />
+      <MetricsBar />
 
       <Box
         component="main"
         sx={{
-          flex: 1,
-          minHeight: 0,
-          overflow: "hidden",
           maxWidth: 1600,
           width: "100%",
           mx: "auto",
           px: { xs: 2, sm: 3 },
           py: { xs: 2, sm: 3 },
-          display: "flex",
-          flexDirection: "column",
         }}
       >
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1, duration: 0.4 }}
-          style={{ flex: 1, minHeight: 0, display: "flex" }}
         >
           <Box
             sx={{
-              flex: 1,
-              minHeight: 0,
               display: "grid",
               gap: { xs: 2, lg: 3 },
               gridTemplateColumns: { xs: "1fr", lg: "3fr 5fr 4fr" },
-              alignItems: "stretch",
+              alignItems: "start",
             }}
           >
             <TestFlowPanel />

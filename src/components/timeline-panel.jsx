@@ -27,6 +27,12 @@ import { formatDuration } from "@/lib/utils.js";
 import { cn } from "@/lib/utils.js";
 
 const PIPELINE_STEP_GAP = 12;
+/** Viewport fits 3 step cards; steps 4+ scroll inside the panel */
+const VISIBLE_PIPELINE_STEPS = 3;
+const PIPELINE_CARD_HEIGHT = 248;
+const PIPELINE_LIST_HEIGHT =
+  VISIBLE_PIPELINE_STEPS * PIPELINE_CARD_HEIGHT +
+  (VISIBLE_PIPELINE_STEPS - 1) * PIPELINE_STEP_GAP;
 
 const statusIcon = {
   pending: Circle,
@@ -346,7 +352,7 @@ export function TimelinePanel() {
     };
 
     const frame = requestAnimationFrame(scrollActiveIntoView);
-    const timer = setTimeout(scrollActiveIntoView, 120);
+    const timer = setTimeout(scrollActiveIntoView, 150);
     return () => {
       cancelAnimationFrame(frame);
       clearTimeout(timer);
@@ -359,8 +365,6 @@ export function TimelinePanel() {
       sx={{
         display: "flex",
         flexDirection: "column",
-        height: "100%",
-        minHeight: 0,
         borderRadius: 3,
         overflow: "hidden",
       }}
@@ -378,27 +382,25 @@ export function TimelinePanel() {
       <Box
         ref={scrollRef}
         sx={{
-          flex: 1,
-          minHeight: 0,
+          height: PIPELINE_LIST_HEIGHT,
+          maxHeight: PIPELINE_LIST_HEIGHT,
           overflowY: "auto",
           overflowX: "hidden",
           px: 2,
-          pt: 0.5,
-          pb: 1,
+          pb: 2,
           scrollBehavior: "smooth",
           WebkitOverflowScrolling: "touch",
         }}
       >
-          <Box
-            className="relative pl-6"
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              gap: `${PIPELINE_STEP_GAP}px`,
-              pb: 3,
-              pr: 0.5,
-            }}
-          >
+        <Box
+          className="relative pl-6"
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            gap: `${PIPELINE_STEP_GAP}px`,
+            pb: 1,
+          }}
+        >
             {visibleSteps.length > 0 && (
               <Box
                 sx={{
@@ -431,7 +433,7 @@ export function TimelinePanel() {
                   {pendingCount} step{pendingCount > 1 ? "s" : ""} queued…
                 </span>
               </motion.div>}
-          </Box>
+        </Box>
       </Box>
     </Paper>
   );

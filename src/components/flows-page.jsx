@@ -33,15 +33,7 @@ export function FlowsPage() {
   const flows = useAppSelector((s) => s.app.flows);
 
   return (
-    <Box
-      sx={{
-        flex: 1,
-        minHeight: 0,
-        overflowY: "auto",
-        overflowX: "hidden",
-        p: { xs: 3, sm: 4 },
-      }}
-    >
+    <Box sx={{ p: { xs: 3, sm: 4 } }}>
       <Box
         sx={{
           mb: 4,

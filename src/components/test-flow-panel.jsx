@@ -143,13 +143,10 @@ export function TestFlowPanel() {
       sx={{
         display: "flex",
         flexDirection: "column",
-        height: "100%",
-        minHeight: 0,
         borderRadius: 3,
-        overflow: "hidden",
       }}
     >
-      <Box sx={{ flexShrink: 0, p: 2, pb: 1.5 }}>
+      <Box sx={{ p: 2, pb: 1.5 }}>
         <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
           <Typography variant="subtitle1" fontWeight={600}>
             {flowName || "Agent Actions"}
@@ -168,10 +165,6 @@ export function TestFlowPanel() {
       </Box>
       <Box
         sx={{
-          flex: 1,
-          minHeight: 0,
-          overflowY: "auto",
-          overflowX: "hidden",
           px: 2,
           pb: 2,
           display: "flex",

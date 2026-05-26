@@ -153,15 +153,11 @@ export function BranchesPanel() {
       sx={{
         display: "flex",
         flexDirection: "column",
-        height: "100%",
-        minHeight: 0,
         borderRadius: 3,
-        overflow: "hidden",
       }}
     >
       <Box
         sx={{
-          flexShrink: 0,
           p: 2,
           pb: 1.5,
           display: "flex",
@@ -177,18 +173,17 @@ export function BranchesPanel() {
             Available after main pipeline finishes all steps
           </Typography>
         </Box>
-      
+        <Button
+          size="small"
+          variant="outlined"
+          startIcon={<AccountTreeIcon sx={{ fontSize: 14 }} />}
+          disabled={!canCreateBranchTesting}
+          onClick={() => dispatch(tryOpenCreateBranchModal(3))}
+        >
+          New
+        </Button>
       </Box>
-      <Box
-        sx={{
-          flex: 1,
-          minHeight: 0,
-          overflowY: "auto",
-          overflowX: "hidden",
-          px: 2,
-          pb: 2,
-        }}
-      >
+      <Box sx={{ px: 2, pb: 2 }}>
         <Paper variant="outlined" sx={{ mb: 2, p: 1.5, display: "flex", alignItems: "center", gap: 1, bgcolor: "action.hover" }}>
           <LayersIcon sx={{ fontSize: 16, color: "text.secondary" }} />
           <Typography variant="body2" fontWeight={500}>

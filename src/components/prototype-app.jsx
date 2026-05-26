@@ -44,12 +44,11 @@ export function PrototypeApp() {
         <AppSidebar />
         <Box
           sx={{
-            display: "flex",
             flex: 1,
-            flexDirection: "column",
             minWidth: 0,
             minHeight: 0,
-            overflow: "hidden",
+            overflowY: "auto",
+            overflowX: "hidden",
           }}
         >
           {sessionStarted ? <TestSessionView /> : <FlowsPage />}
