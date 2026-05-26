@@ -1,36 +1,41 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Autosana — Branchable AI Test Sessions
 
-## Getting Started
+A frontend-heavy clickable prototype demonstrating **Branchable AI Test Sessions**: fork from any completed step, modify downstream actions, and explore edge cases without rerunning entire flows.
 
-First, run the development server:
+## Tech stack
+
+- **Vite + React** (JSX)
+- **Redux Toolkit** — app state, async pipeline/branch thunks
+- **Material UI (MUI)** — components, theme, light/dark mode
+- **Tailwind CSS** — layout utilities and gradient accents
+- **Framer Motion** — animations
+
+## Getting started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:5173](http://localhost:5173).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Demo flow
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Open **Flows** → **Create Flow** (defaults: Cars nearby + Contact information Form).
+2. **Start** — main pipeline runs step-by-step in the center panel.
+3. After all steps complete, use **Fork From Here** on a timeline step or **New** in Branch Testing.
+4. Create a branch (presets available) — downstream steps replay with context reuse.
+5. **Merge Instruction** combines main + branch text on the fork step.
 
-## Learn More
+## Project structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+src/
+├── main.jsx          # Vite entry
+├── store/            # Redux slice + thunks
+├── lib/              # Mock data + utils
+└── components/       # MUI-based UI + session panels
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Mock data only — no backend, auth, or real browser automation.
+# branch-testing-prototype
