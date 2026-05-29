@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  GitBranch,
   ChevronDown,
   Clock,
   FileText,
@@ -27,7 +26,6 @@ import { formatDuration } from "@/lib/utils.js";
 import { cn } from "@/lib/utils.js";
 
 const PIPELINE_STEP_GAP = 12;
-/** Viewport fits 3 step cards; steps 4+ scroll inside the panel */
 const VISIBLE_PIPELINE_STEPS = 3;
 const PIPELINE_CARD_HEIGHT = 248;
 const PIPELINE_LIST_HEIGHT =
